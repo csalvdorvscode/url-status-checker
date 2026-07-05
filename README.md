@@ -1,33 +1,45 @@
 # 🌐 URL Status Checker
 
-A simple Python script that checks the status of a list of websites and returns whether they are online or not.
+A Python tool that reads a list of URLs, removes duplicates, sends HTTP GET requests, and reports the HTTP status code for each website.
 
 ## 🚀 Features
 
-- Reads URLs from a `.txt` file
+- Reads URLs from `urls.txt`
 - Removes duplicate URLs automatically
-- Checks website status using HTTP requests
-- Handles errors (timeouts, broken links, etc.)
-- Simple and fast execution
+- Ignores blank lines
+- Automatically adds `https://` if a protocol is missing
+- Sends HTTP GET requests
+- Reports HTTP status codes (200, 301, 403, 404, 500...)
+- Handles connection errors and timeouts
+- Fast and lightweight
 
 ## 🛠️ Tech Stack
 
 - Python 3
-- requests library
+- Requests
 
-## 📥 Installation & Setup
+## 📥 Installation
 
-1. **Clone the repository** (or download the files):
+```bash
+pip install requests
+```
 
-   ```bash
-   git clone https://github.com/youruser/url-status-checker.git
-   cd url-status-checker
+## ▶️ Usage
 
+1. Add your URLs to `urls.txt`
+2. Run:
 
-## 📂 How it works
+```bash
+python main.py
+```
 
-1. Add your URLs inside `urls.txt`
-2. Run the script:
-   ```bash
-   python main.py
+## 📄 Example Output
 
+```
+Checking 5 unique URLs...
+
+[200] -> https://google.com
+[200] -> https://github.com
+[404] -> https://httpbin.org/status/404
+[403] -> https://httpbin.org/status/403
+```
